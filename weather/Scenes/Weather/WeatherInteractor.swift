@@ -17,7 +17,7 @@ final class WeatherInteractor: WeatherInteracting {
 extension WeatherInteractor {
     func fetchWeather() {
         presenter.startLoading()
-        service.fetchWeather { [weak self] result in
+        service.fetchWeather(endpoint: .locationWeather) { [weak self] result in
             self?.presenter.stopLoading()
             switch result {
             case .success(let response):
